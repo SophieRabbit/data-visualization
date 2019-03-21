@@ -1,17 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {render} from 'react-dom';
-import {Router, match, browserHistory} from 'react-router';
-import {Provider} from 'react-redux';
-import routes from './routes';
-import configureStore from './common/store/configureStore';
-const store = configureStore(window.REDUX_STATE);
+import { render } from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import routeConfig from './routeConfig';
+import rootReducer from './reducers';
 
-match({history: browserHistory, routes}, (error, redirectLocation, renderProps) => {
-    render(
-        <Provider store={store}>
-            <Router {...renderProps} />
-        </Provider>,
-        document.getElementById('root')
-    );
-});
+let store = createStore(rootReducer);
+
+render(
+    <Provider store={store}>
+        <Router routes={routeConfig} />
+    </Provider>,
+    document.getElementById('root')
+)
+
