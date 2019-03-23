@@ -1,7 +1,6 @@
 import { ACTION_TYPES } from '@/actions';
 import immutable from 'immutable';
 
-
 const initialState = immutable.fromJS({
     test: {}
 });
