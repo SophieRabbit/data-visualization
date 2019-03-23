@@ -13,7 +13,7 @@ export default routeConfig = [
         indexRoute: {
             getComponent(nextState, callback) { //getComponent 这个方法是异步的，也就是当路由匹配时，才会调用这个方法
                 require.ensure([], (require) => {
-                    callback(null, require('./modules/home'));
+                    callback(null, require('./modules/pages/home'));
                 }, 'home');
             }
         },
